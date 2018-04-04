@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>社区服务</title>
+    <script src="js/jquery-2.1.0.js"></script>
+
+</head>
+<style>
+	body{
+		margin: 0;
+		font-family: "微软雅黑";
+		min-width: 1280px;
+		background: #eef1f4;
+	}
+	h1,h2,h3,h4,h5,h6,ul,li,p{
+		margin: 0;
+		padding: 0;
+		list-style:none;
+	}
+	a{
+		text-decoration:none;
+		color:#000;
+	}
+	*{
+		box-sizing:border-box;
+	}
+	.header{
+    	width:100%;
+    	height:91px;
+    	margin: 0 auto;
+    	line-height: 91px;
+    	font-size: 30px;
+    	color:#3c7ce6;
+    	font-weight: bold;
+    	position: relative;
+    	background: #fff;
+    }
+    .header img{
+    	position: absolute;
+    	left:13.5%;
+    	top:31%;
+    }
+    #shadow{
+    	margin-top:-10px;
+    }
+    #shadow img{
+    	width: 100%;
+    }
+   	.content{
+   		width:1212px;
+   		height:532px;
+   		background: #fff;
+   		margin:0 auto;
+   		margin-top:10px;
+   		position: relative;
+   	}
+   	.pic{
+   		width: 666px;
+      height: 200px;
+      position: absolute;
+      top: 125px;
+      left: 285px;
+   	}
+   	.pic ul{
+   		width:199px;
+   		height:199px;
+   		text-align: center;
+   		float: left;
+   	}
+   	.pic ul li:nth-child(1){
+   		margin-bottom:25px;
+   	}
+   	.pic ul:nth-child(2){
+   		margin-left:127px;
+   	}
+   	.pic ul:nth-child(3){
+   		margin-left:127px;
+   	}
+   	.footer{
+   		width:100%;
+   		text-align:center;
+   		margin-top:115px;
+   	}
+   	.footer p:nth-child(1){
+   		margin-bottom:20px;
+   	}
+   	.footer p:nth-child(2){
+   		color:#555555;
+   		font-size:12px;
+   	}
+    .enterprise{
+        width:198px;
+        height:192px;
+        border:8px solid #4574d4;
+        border-radius:50%;
+        position: relative;
+    }
+    .yingyin{
+        position: absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;
+        display: none;
+    }
+    .yuans{
+       position: absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto; 
+    }
+    .lou{
+       position: absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;  
+    }
+    .picbox{
+        width:200px;
+        height:192px;
+        cursor: pointer;
+        margin-bottom:6px;
+    }
+    .picbox:nth-child(1){
+      float: left;
+    }
+    .picbox:nth-child(2){
+      float: right;  
+    }
+    .enterprise p{
+        padding-top:10px;
+        text-align:center;
+    }
+    .picdiv:hover img:nth-child(1){
+        display: block;
+    }
+</style>
+<body>
+	<div class="header"><img src="images/jiameng.png"></div>
+    <div id="shadow"><img src="images/shadow.png" ></div>
+	<div class="content">
+		<div class="pic">
+			<!-- <ul class="uls">
+				<li>
+                      <a href="joinIofo.html?type=1">
+                          <img src="images/zhu.png" alt="">
+                      </a>
+				</li>
+				<li>
+					企业
+				</li>
+			</ul>
+
+			<ul>
+				<li>
+          <a href="joinIofo.html?type=2">
+			 <img src="images/Volunteer.png" alt="">
+          </a>
+				</li>
+				<li>
+					志愿者团队
+				</li>
+			</ul>
+
+			<ul>
+				<li>
+          <a href="joinIofo.html?type=3">
+					   <img src="images/Convenience.png" alt="">
+          </a>
+				</li>
+				<li>
+					便民服务团队
+				</li>
+			</ul>
+            <div>
+                <div>
+                    
+                </div>
+            </div> -->
+            
+            <div class="picbox">
+                <div class="enterprise">
+                    <a href="joinIofo.html?type=1">
+                        <div class="picbox picdiv">
+                            <img src="images/web/yuan.png" alt="" class="yingyin">
+                            <img src="images/web/yuans.png" alt="" class="yuans">
+                            <img src="images/web/lou.png" alt="" class="lou">
+                        </div>  
+                      </a>
+                    <p style="color:#536172">社会组织</p>
+                </div>
+            </div>
+
+            <!-- <div class="picbox">
+                <div class="enterprise">
+                    <a href="joinIofo.html?type=2">
+                        <div class="picbox picdiv">
+                            <img src="images/web/xinhou.png" alt="" class="yingyin">
+                            <img src="images/web/xinqian.png" alt="" class="yuans">
+                            <img src="images/web/peo.png" alt="" class="lou">
+                        </div>
+                    </a>
+                    <p>志愿者团队</p>
+                </div>
+            </div> -->
+
+            <div class="picbox">
+                <div class="enterprise">
+                    <a href="joinIofo.html?type=2">
+                        <div class="picbox picdiv">
+                            <img src="images/web/xin.png" alt="" class="yingyin">
+                            <img src="images/web/xinsss.png" alt="" class="yuans">
+                            <img src="images/web/peo.png" alt="" class="lou">
+                        </div>
+                      </a>
+                    <p style="color:#536172;">志愿者</p>
+                </div>
+            </div>
+
+		</div>
+	</div>
+	<div class="footer">
+		<p><img src="images/vito.png" alt=""></p>
+		<p>北京北科维拓科技有限公司 京ICP备08100339号</p>
+	</div>
+</body>
+<script>
+
+//接收地址栏中传递过来的参数。
+var url=location.search;
+var str = url.substr(1);
+strs = str.split("&");
+theRequest = new Object();
+//url中存在问号，也就说有参数。
+if(url.indexOf("?") != -1){
+var str = url.substr(1);
+  strs = str.split("&");
+  for(var i = 0; i < strs.length; i ++){
+     theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+    }
+  }
+communityid = theRequest.communityid;
+communitytype = theRequest.communitytype;
+initid = theRequest.initid;
+console.log(theRequest)
+var a=$(".pic a");
+for(var i=0; i<a.length; i++){
+    a[i].href += "&communityid="+ communityid +"&communitytype=" + communitytype +"&initid=" + initid ;
+}
+
+</script>
+</html>

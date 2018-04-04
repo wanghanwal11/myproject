@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>社区服务</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/iview.css">
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src=//at.alicdn.com/t/font_278311_n7v5usliva8xgvi.js></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/iview.min.js"></script>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=238db1d2556b07c109516eb720e08f47&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+</head>
+<body>
+	<!-- 头部区域 -->
+	<div class="header">
+		<img src="images/sheicon.png" class="enterprise" style="display: none;">
+		<img src="images/sheicon.png" class="Volunteer_title" alt="" style="display: none;">
+		<img src="images/zhiicon.png" class="prise" alt="" style="display: none;"></div>
+	</div>
+	<div id="shadow"><img src="images/shadow.png" ></div>
+
+	<!-- 主体区域 -->
+	<div class="content">
+		<div class="content_top_box">
+			<!-- 企业 -->
+			<div class="qiye" style="display: none;">
+				<div class="left">
+					<div class="infoBox">
+						<h3 class="position">基本信息</h3>
+						<span style="line-height: 25px;padding-left:20px;color:#999999;font-size:12px;">请输入真实的信息</span>
+					</div>
+
+					<div class="photoImg">
+						<p class="positions" style="color:#536172;">企业头像</p>
+						<div class="photo">
+								<img src="images/qiye.png" id="imgs" alt="">
+								<div class="photoMask">
+										<a href="javascript:;" class="a-upload">
+												<input type="file" name="" id="file" style="opacity:0; filter:alpha(opacity=0); width: 70px;height:70px;margin-left:0;">
+										</a>
+										<svg class="photoMask-icon" aria-hidden="true">
+												<use xlink:href="#icon-xiangji1"></use>
+										</svg>
+								</div>
+						</div>
+					</div>
+
+					<div class="infoBoxs">
+						<p style="float: left;padding-left:29px;font-size:14px;line-height: 35px;padding-left:85px;color:#536172">名称</p>
+						<input type="text" placeholder="请输入您的企业名称" class="nameQiye username">
+					</div>
+
+					<div class="infoBoxs">
+						<p style="float: left;font-size:14px;padding-left:14px;line-height: 35px;padding-left:70px;color:#536172">证件号</p>
+						<input type="text" placeholder="请输入您的信用代码" class="codeQiye">
+					</div>
+
+					<div class="infoBoxs">
+						<p style="float: left;padding-left:29px;font-size:14px;line-height: 35px;padding-left:83px;color:#536172">地址</p>
+						<input type="text" placeholder="请输入您的地址" id="tipinput" style="width:365px;height:33px;" class="address">
+					</div>
+
+					<div class="infoBoxs" id="info">
+						<p style="float: left;font-size:14px;line-height: 35px;padding-left:55px;color:#536172">联系电话</p>
+						<input type="text" placeholder="请输入您的联系电话" class="userphone" id="phones">
+					</div>
+
+					<div class="infoBoxs">
+						<p style="float: left;font-size:14px;line-height: 35px;padding-left:55px;color:#536172" >注册时间</p>
+						<input type="text" placeholder="请输入您的日期" class="time">
+					</div>
+				</div>
+
+				<div class="right">
+					<div class="yingye">
+						<p style="font-size:14px;font-weight:bolder;float: left;">营业执照</p>
+						<span style="line-height: 25px;padding-left:20px;color:#999999;font-size:12px;">请上传相关证件</span>
+						<div class="shangchuan">
+							<img src="images/zhen.png" class="imgCard" id="imgcard"/>
+							<img src="images/add.png" alt="" class="add">
+							<a href="javascript:;" class="a-upload">
+								<input type="file" name="" class="fileIdcard" onchange="shangchuan(0)" style="opacity:0; filter:alpha(opacity=0); width: 234px;height:331px;position: absolute;top:0;left:0;">
+							</a>
+							<div id="mask0" class="shangchuan-mask">
+								<div style="width: 30px;height: 30px;position: absolute;">
+									<svg class="circular" viewBox="25 25 50 50">
+											<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+									</svg>
+								</div>
+							</div>
+							<p style="position: absolute;right:-60%;top:45%;color:#536172;font-size:14px;">(点击图片进行修改)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 企业 -->
+
+			<!-- 个人 -->
+			<div class="person" style="display: none;">
+				<div class="leftBox">
+					<div class="infoBox">
+							<p class="position">基本信息</p>
+							<span style="line-height: 25px;padding-left:20px;color:#999999;font-size:12px;">请输入真实的信息</span>
+							<div class="photoImg">
+							<p style="padding-left:55px;font-size:14px;color:#536172;">个人头像</p>
+							<div class="photo">
+									<img src="images/geren.png" id="imgss" alt="">
+									<div class="photoMask">
+											<a href="javascript:;" class="a-upload">
+													<input type="file" name="" id="files" style="opacity:0; filter:alpha(opacity=0); width: 70px;height:70px;margin-left:0;">
+											</a>
+											<svg class="photoMask-icon" aria-hidden="true">
+													<use xlink:href="#icon-xiangji1"></use>
+											</svg>
+									</div>
+						</div>
+						<div class="boxInfo">
+							<div style="float: left;padding-left:29px;font-size:14px;line-height: 35px;padding-left:85px;color:#536172;">姓名</div>
+							<input type="text" placeholder="请输入您的姓名" class="username">
+						</div>
+						<!-- <div class="boxInfo">
+							<div style="display: inline-block;font-size:14px;padding-left:29px;padding-left:82px;position: relative;color:#536172"  id="sex">性别
+								<div class=sexBox>
+									<div class="radio">
+										<div class="dian"></div>
+									</div>
+									<div class="sex">男</div>
+								</div> 
+
+								<div class=sexBox>
+									<div class="radios">
+										<div class="dians"></div>
+									</div>
+									<div class="sex">女</div>
+								</div> 
+
+								<template>
+								        <Radio-group v-model="sex" class="sex" @on-change="changsex">
+					                          <Radio label="男"></Radio>
+					                          <Radio label="女"></Radio>
+					                    </Radio-group>
+								</template>
+							</div>
+							<input type="text" placeholder="请输入您性别" class="usersex">
+						</div> -->
+						<div class="boxInfo">
+		                  <div style="display: inline-block;font-size:14px;padding-left:84px;">性别</div>
+		                  <div class="sexBox">  
+		                    <Radio-group v-model="sex" class="sex" @on-change="changsex">
+		                          <Radio label="男"></Radio>
+		                          <Radio label="女"></Radio>
+		                    </Radio-group>
+		                  </div>
+		                </div>
+						<div class="boxInfo">
+							<div style="float: left;padding-left:29px;font-size:14px;line-height: 35px;padding-left:85px;color:#536172">年龄</div>
+							<input type="text" placeholder="请输入您的年龄" class="userage">
+						</div>
+						<div class="boxInfo">
+							<div style="float: left;padding-left:29px;font-size:14px;line-height: 35px;padding-left:85px;color:#536172">地址</div>
+							<input type="text" placeholder="请输入您的地址" class="useraddress">
+						</div>
+						<div class="boxInfo">
+							<div style="float: left;font-size:14px;line-height: 35px;padding-left:56px;color:#536172">联系电话</div>
+							<input type="text" placeholder="请输入您的联系电话" class="userphones" id="phone">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rightBox">
+					<h3 style="float: left;font-size:14px;font-weight:bolder;">身份证</h3>
+					<span style="line-height: 25px;padding-left:20px;color:#999999;float: left;font-size:12px;">请上传相关证件</span>
+					<div class="idCard">
+						<div class="cardQian">
+							<img src="images/q.png" class="imgCard"/>
+							<img src="images/add.png" alt="" class="addimg">
+							<a href="javascript:;" class="a-upload">
+									<input type="file" name="" class="fileIdcard" onchange="shangchuan(1)" style="opacity:0; filter:alpha(opacity=0); width: 300px;height:160px;position: absolute;top:0;left:0;">
+							</a>
+							<div id="mask1" class="shangchuan-mask">
+								<div style="width: 30px;height: 30px;position: absolute;">
+									<svg class="circular" viewBox="25 25 50 50">
+										<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+									</svg>
+								</div>
+							</div>
+
+						</div>
+						<div class="cardHou">
+							<img src="images/h.png" class="imgCard"/>
+							<img src="images/add.png" alt="" class="addimgs">
+							 <a href="javascript:;" class="a-upload">
+									<input type="file" name="" class="fileIdcard" onchange="shangchuan(2)" style="opacity:0; filter:alpha(opacity=0); width: 300px;height:160px;position: absolute;top:0;left:0;">
+							</a>
+							<div id="mask2" class="shangchuan-mask">
+								<div style="width: 30px;height: 30px;position: absolute;">
+									<svg class="circular" viewBox="25 25 50 50">
+											<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<p class="p1">(点击图片进行修改)</p>
+						<p class="p2">(点击图片进行修改)</p>
+					</div>
+				</div>
+			</div>
+			<!-- 个人 -->
+
+			<div class="content_center">
+				<div class="fwinfo">
+					<p style="float: left;font-size:14px;padding-left:56px;font-weight:bolder;">服务项目</p><span style="padding-left:20px;line-height: 25px;font-size:12px;">填写您所需要的服务信息</span>
+				</div>
+				<div class="servers">
+					<div class="serversLeft">
+						<span class="serversLeftContent"></span>
+						<span class="labelAdd">+</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- 弹出遮罩 -->
+			<div class="alertContent" style="display: none;">
+				<div class="serverType">
+					<div class="title">
+							服务类型  （请将服务类型内容拖动到右侧空白区域）
+					</div>
+					<div class="serverLeft">
+
+					</div>
+					<div class="serverRight">
+						<div class="serverRight_top" onselectstart='return false;' style='-moz-user-select:none;' ondrop='drop(event)' ondragover='allowDrop(event)' placeholder="sdfhshdfhshfsj">
+						</div>
+						<div class="serverRight_bottom">
+							<div class="determine">确定</div>
+							<div class="cancel">取消</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 弹出遮罩 -->
+
+			<div class="jianjie">
+				<p style="font-size:14px;padding-left:84px;float:left;line-height: 26px;font-weight:bolder;">简介</p>
+				<span style="line-height:25px;padding-left:20px;font-size:12px;color:#999999;">非必填内容</span>
+				<textarea name="" id="" cols="0" rows="" style="display: block;width:1018px; height:142px; margin-left:132px;margin-top:50px;margin-bottom:90px;padding:10px 0 0 10px;" placeholder="请输入相关内容..." id="text"></textarea>
+			</div>
+
+			<div class="fujian">
+				<p style="font-size:14px;padding-left:30px;float: left;padding-left:84px;line-height: 26px;font-weight:bolder;">附件</p>
+				<span style="line-height: 25px;padding-left:20px;font-size:12px;color:#999999;">上传相关内容</span>
+				<div class="Plus">
+					<div class="plusBox">
+						<a href="javascript:;" class="chuan" style="display: inline-block;width:130px;height:140px;position: relative;border:1px solid #ccc;margin-top:33px;margin-left:5px;">
+								 <img src="images/jia.png" class="imggs" alt="">
+								<input type="file" name="" id="fileChuan" style="opacity:0; filter:alpha(opacity=0); width: 130px;height:140px;position: absolute;top:0;left:0">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="Determine">
+				<div class="back">返回上一步</div>
+				<div class="dete">确定</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体区域 -->
+
+	<!-- 页脚 -->
+	<div class="footer">
+		<div>
+			<p><img src="images/vito.png" alt=""></p>
+			<p>北京北科维拓科技有限公司 京ICP备08100339号</p>
+		</div>
+	</div>
+	<!-- 页脚 -->
+</body>
+</html>
+<script>
+var server = window.location.origin + "/";
+	//server = "http://192.168.0.10/";
+var gps;
+var filePath ="";
+var filePaths = [];
+var fuJianName = "";
+var fuJianPath = "";
+//用户信息
+var username = "";
+var useraddress = "";
+var userage = "";
+var usersex = "";
+//企业信息
+var enterprisename = "";
+var enterprisehao = "";
+var enterpriseaddress = "";
+var enterprisetime = "";
+
+var fileName = "";
+var urlName = "";
+var nameArr = [],
+	urlArr = [];
+
+var logo;
+var initid;
+var msg;
+
+$(function(){
+
+	//地图设置
+	var address;
+	var map = new AMap.Map('map',{
+		zoom: 10,
+		resizeEnable: true,
+		center: [116.397428, 39.90923]
+	});
+	var auto = new AMap.Autocomplete({
+			input: "tipinput"
+	});
+
+	//构造地点查询类
+	var placeSearch = new AMap.PlaceSearch({
+			map: map
+	});
+
+	//注册监听，当选中某条记录时会触发
+	AMap.event.addListener(auto, "select", select);
+	function select(e) {
+			if (e.poi && e.poi.adcode) {
+					 placeSearch.setCity(e.poi.adcode);
+					 placeSearch.search(e.poi.name);
+			}
+			address = $(".address").val();
+			addressCode()
+	}
+
+	//获取经纬度 地理编码
+	function addressCode() {
+		var geocoder = new AMap.Geocoder({
+				city: "", //城市，默认：“全国”
+				radius: 1000 //范围，默认：500
+		});
+
+		//地理编码,返回地理编码结果
+		var arr=[];
+		geocoder.getLocation(address, function(status, result) {
+			if (status === 'complete' && result.info === 'OK') {
+				var geocode = result.geocodes;
+				for (var i = 0; i < geocode.length; i++) {
+						var lng = geocode[i].location.getLng();
+						var lat = geocode[i].location.getLat();
+						debugger;
+						arr.push(lng,lat);
+						gps = arr.join(",");
+				}
+			}
+		});
+	}
+
+	
+
+	//判断类型上传头像
+	if(typenum == 1){ //企业
+		$("#file").on("change",function(){
+			var file = event.target.files || event.dataTransfer.files;
+			if (typeof FileReader === 'undefined') {
+					alert('您的浏览器不支持图片上传，请升级您的浏览器');
+					return false;
+			}
+			var image = new Image();
+			var leng = file.length;
+			for (var i = 0; i < leng; i++) {
+					var reader = new FileReader();
+					reader.readAsDataURL(file[i]);
+					reader.onload = function (e) {
+							upload();
+					};
+			}
+		})
+
+	function upload(){
+		var fileObj = document.getElementById("file").files[0];
+		var form = new FormData();
+		form.append("file", fileObj);
+		$.ajax({
+			url: server + "cmy/cmy/sCommunityinfo/uploadCommunityPic",
+			type:"post",
+			processData:false,
+			contentType:false,
+			data:form,
+			success:function(data){
+				debugger
+				console.log(typeof data);
+				var data = JSON.parse(data);
+				 filePath =  data.filepath;
+				$("#imgs")[0].src = filePath;
+			},
+			error:function(){
+				console.log(error);
+			}
+		})
+		return;
+	}
+	}else if(typenum == 2 || typenum == 3){ //志愿者团队  便民服务团队
+		$("#files").on("change",function(){
+			var file = event.target.files || event.dataTransfer.files;
+			if (typeof FileReader === 'undefined') {
+					alert('您的浏览器不支持图片上传，请升级您的浏览器');
+					return false;
+			}
+			var image = new Image();
+			var leng = file.length;
+			for (var i = 0; i < leng; i++) {
+					var reader = new FileReader();
+					reader.readAsDataURL(file[i]);
+					reader.onload = function (e) {
+							upload();
+					};
+			}
+		})
+		function upload(){
+			var fileObj = document.getElementById("files").files[0];
+			var form = new FormData();
+			form.append("file", fileObj);
+			$.ajax({
+				url: server + "cmy/cmy/sCommunityinfo/uploadCommunityPic",
+				type:"post",
+				processData:false,
+				contentType:false,
+				data:form,
+				success:function(data){
+					debugger
+					console.log(typeof data);
+					var data = JSON.parse(data);
+					 filePath =  data.filepath;
+					$("#imgss")[0].src = filePath;
+				},
+				error:function(){
+					console.log(error);
+				}
+			})
+		}
+	}
+
+	//获取服务项列表内容
+	$.ajax({
+		type:"GET",
+		dataType:"json",
+		data:{
+			communityid : communityid,
+			communitytype : communitytype
+		},
+		url: server + "support/SupProviderService/SupProviderService/getCommunityService",
+		success:function(res){
+			data=res.rows;
+			createBox(data.length);
+			for(var i=0; i<data.length; i++){
+				 var text=data[i].title;
+				 tid = data[i].typeid;
+				 var p=$("<div class='type' onselectstart='return false;'style='-moz-user-select:none;' data-pid="+data[i].id+">"+text+"<span class='top'></span></div>")[0];
+				 $(".sub_box")[i].appendChild(p);
+				 var subText=data[i].supProviderList;
+					for(var j in subText){
+							if(subText[j].parentid==data[i].typeid){
+								var li=$("<li draggable='true' ondragstart='drag(event,"+subText[j].typeid+","+tid+")' onselectstart='return false;'style='-moz-user-select:none;' data-pid="+subText[j].parentid+" data-cid="+subText[j].id+">"+subText[j].title+"</li>")[0];
+								 $(".sub_box")[i].appendChild(li)
+							}
+					}
+			}
+
+			//服务项下拉列表
+			$(".type").on("click",function(){
+				if($(this).siblings().is(":hidden")){
+					$(this).siblings().removeClass("hide");
+					$(this).children("span").removeClass("bottom");
+				}else{
+					$(this).siblings().addClass("hide");
+					$(this).children("span").addClass("bottom");
+				}
+			})
+		},
+		error:function(err){
+			console.log(err);
+		}
+	})
+
+	//根据数据的条数创建出对应的div
+	function createBox(n){
+		for(var i=0; i<n; i++){
+			var div=document.createElement("div");
+			div.style.width=170+"px";
+			div.style.height="auto";
+			div.setAttribute('class','sub_box');
+			$(".serverLeft")[0].appendChild(div);
+		}
+	}
+
+	//上传附件
+	$("#fileChuan").on("change",function(){
+		if(event.target.files.length !=0){
+			var box = $("<div class='imgBox'><img class='imgs' /><div class='shangchuanfujian' onclick='deletefujian(event)'>X</div></div>")
+			$(".plusBox").prepend(box);
+			debugger
+			var file = event.target.files || event.dataTransfer.files;
+			if (typeof FileReader === 'undefined') {
+					alert('您的浏览器不支持图片上传，请升级您的浏览器');
+					return false;
+			}
+			var image = new Image();
+			var leng = file.length;
+			for (var i = 0; i < leng; i++) {
+					var reader = new FileReader();
+					reader.readAsDataURL(file[i]);
+					reader.onload = function (e) {
+							upload();
+					};
+			}
+		}else{
+			return false;
+		}
+
+		function upload(){
+			var fileObj = document.getElementById("fileChuan").files[0];
+			var form = new FormData();
+			form.append("file", fileObj);
+			$.ajax({
+				url: server + "zuul/cmy/cmy/sCommunityinfo/uploadCommunityPic",
+				type:"post",
+				processData:false,
+				contentType:false,
+				data:form,
+				success:function(data){
+					debugger
+					console.log(data);
+					var data = JSON.parse(data);
+					filePaths =  data.filepath;
+					$(".imgs")[0].src = filePaths;
+					for(var i in data){
+						debugger
+						fuJianName = data.filename;
+						fuJianPath = data.filepath;
+					}
+					//获取每张上传后图片名称
+					var p = $("<p style='width:130px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>"+ fuJianName +"</p>");
+					$($(".imgBox")[0]).append(p);
+					nameArr.push(fuJianName);
+					fileName = nameArr.join(",");
+					debugger
+					console.log(fileName)
+					urlArr.push(fuJianPath);
+					debugger
+					urlName = urlArr.join(",");
+					console.log(urlName)
+				},
+				error:function(){
+					console.log(error);
+				}
+			})
+		}
+	})
+});
+
+//删除附件
+function deletefujian (event) {
+	debugger;
+	$("#fileChuan").val("");
+	console.log(event);
+	var imgBox = event.target.parentNode;
+	var imgSrc = event.target.parentNode.children[0].src;
+	var imgText = event.target.parentNode.children[2].innerHTML;
+	
+	$(imgBox).remove();
+	urlArr.splice(urlArr.indexOf(imgSrc), 1);
+	urlName = urlArr.join(",");
+	nameArr.splice(nameArr.indexOf(imgText), 1);
+	fileName = nameArr.join(",");
+}
+//拖拽相应的内容
+var arr = [];
+function drag(event,id,pid){
+	arr.push(id,pid);
+	tag = event.path[0];
+	dom = event.currentTarget.cloneNode(true);
+	dom.setAttribute('class','serversArt');
+}
+
+//拖放到对应的盒子 拖拽完成
+function drop(event){
+	event.preventDefault();
+	dom.draggable=false;
+	var span=$("<span class='clo' onclick='delte(event)'> X </span>");
+	dom.appendChild(span[0]);
+	event.target.appendChild(dom);
+	tag.style="display:none";
+}
+
+//阻止默认事件 拖拽进行时
+function allowDrop(event){
+	 event.preventDefault();
+}
+
+//删除单个服务项目逐条删除
+function delte(event){
+	var cid = $(event.path[1]).attr("data-cid");
+	var pid = $(event.path[1]).attr("data-pid");
+	event.path[1].remove();
+	//删除对应的li根据对应的li让其显示
+	$("[data-cid=" + cid + "]")[0].style="display:block";
+	arr.splice(arr.indexOf(cid), 1);
+	arr.splice(arr.indexOf(pid), 1);
+}
+
+//弹出遮罩 并让其内容为空
+$(".labelAdd").on("click",function(){
+		$(".alertContent").css("display","block");
+		$(".serverRight_top").html("");
+})
+
+//弹出服务选项遮罩层 获取相应内容
+$(".determine").on("click",function(){
+	var html = $(".serverRight_top").html();
+	$(".serversLeftContent").append(html);
+	$(".alertContent").css("display","none");
+})
+
+//取消按钮
+$(".cancel").on("click",function(){
+	$(".serverRight_top").html("");
+	$(".alertContent").css("display","none");
+	$(".sub_box li").length().css("display","block");
+})
+
+//获取地址栏中的社区类型社区id
+var communityid,communitytype;
+var url = location.search;
+var str = url.substr(1);
+strs = str.split("&");
+theRequest = new Object();
+//url中存在问号，也就说有参数。
+if(url.indexOf("?") != -1){
+var str = url.substr(1);
+	strs = str.split("&");
+	for(var i = 0; i < strs.length; i ++){
+		 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+		}
+	}
+//社区类型 社区id
+communityid = theRequest.communityid;
+communitytype = theRequest.communitytype;
+
+//点击确定按钮确认信息
+debugger
+$(".dete").on("click",function(){
+	debugger
+//typeid去重 服务类型父类id去重
+	var arrs=[];
+	 for(var i=0; i<arr.length; i++){
+		if(arrs.indexOf(arr[i])==-1){
+			arrs.push(arr[i])
+		}
+	 }
+	typeid=arrs.join(",");
+
+	if(typenum==1){
+		if( $(".nameQiye").val() != "" && $(".codeQiye").val() != "" && $(".time").val() != "" ){
+			$.ajax({
+					type:"GET",
+					dataType:"json",
+					data:{
+						"typeid" : typeid,
+						"filename" : fileName,
+						"filepath" : urlName,
+						"remark" : $("#text").val(),
+						"name" :$(".username")[typenum-1].value,
+						"communityid":communityid,
+						"communitytype":communitytype,
+						"typeid":typeid,
+						"logo":filePath,
+						"initid":initid,
+						"age":userage,
+						"phone":$(".userphone").val(),
+						"address":$(".address").val(),
+						"sex":usersex,
+						"type":typenum,
+						"creditcode":enterprisehao,
+						"opentime":$(".time").val(),
+						"licence": filePaths[0],
+						"idcardface":filePaths[1],
+						"idcardback":filePaths[2],
+						"gps":gps
+					},
+					url: server + "support/sup/Supserviceprovider/save",
+					success:function(data){
+							debugger;
+							console.log(data)
+							if(data.isSucceed){
+								alert("录入成功");
+								location.reload();
+							}else{
+								alert(msg);
+							}
+					},
+					error:function(err){
+						console.log(err);
+					}
+			})
+		}else{
+			alert("请填完整信息后在提交！");
+			return false;
+		}
+	}
+
+	if(typenum==2 || typenum==3){
+		debugger
+		if($(".useraddress").val() !=""){
+					$.ajax({
+					type:"GET",
+					dataType:"json",
+					data:{
+						"typeid" : typeid,
+						"filename" : fileName,
+						"filepath" : urlName,
+						"remark" : $("#text").val(),
+						"name" :$(".username")[typenum-1].value,
+						"communityid":communityid,
+						"communitytype":communitytype,
+						"typeid":typeid,
+						"logo":filePath,
+						"initid":initid,
+						"age":userage,
+						"phone":$(".userphones").val(),
+						"address":$(".useraddress").val(),
+						"sex":sex,
+						"type":typenum,
+						"creditcode":enterprisehao,
+						"opentime":$(".time").val(),
+						"licence": filePaths[0],
+						"idcardface":filePaths[1],
+						"idcardback":filePaths[2],
+						"gps":gps
+					},
+					url: server + "support/sup/Supserviceprovider/save",
+					success:function(data){
+							debugger;
+							console.log(data)
+							if(data.isSucceed){
+								alert("录入成功");
+								location.reload();
+							}else{
+								alert(msg);
+							}
+					},
+					error:function(err){
+						console.log(err);
+					}
+			})
+		}else{
+			alert("请填完整信息后在提交！");
+			return false;
+		}
+	}
+})
+
+//获取地址栏中type类型
+var url = location.search;
+		var str = url.substr(1);
+		strs = str.split("&");
+		var theRequest = new Object();
+	//url中存在问号，也就说有参数。
+		if(url.indexOf("?") != -1){
+			var str = url.substr(1);
+					strs = str.split("&");
+			for(var i = 0; i < strs.length; i ++){
+				 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+				}
+		}
+var typenum = theRequest.type;
+var initid = theRequest.initid;
+
+//判断企业还是个人的默认头像
+var number = "";
+if(typenum == 1){
+	filePath = "http://vitocloud.img-cn-beijing.aliyuncs.com/null/2017/8/24/3518026607051776.png";
+	number = typenum;
+	$(".qiye").css("display","block");
+	$(".prise").css("display","block");
+}else if(typenum == 2){
+	filePath = "http://vitocloud.img-cn-beijing.aliyuncs.com/null/2017/8/24/3518028799722496.png";
+	number = typenum;
+	$(".person").css("display","block");
+	$(".enterprise").css("display","none");
+	$(".Volunteer_title").css("display","block");
+}else if(typenum == 3){
+	filePath = "http://vitocloud.img-cn-beijing.aliyuncs.com/null/2017/8/24/3518028799722496.png";
+	number = typenum;
+	$(".Volunteer_title").css("display","none");
+	$(".enterprise").css("display","block");
+	$(".person").css("display","block");
+}
+
+//返回上一步
+$(".back").on("click",function(){
+		window.open('join.html?communityid=' + communityid + '&communitytype=' + communitytype +'&initid=' + initid)
+})
+
+//上传企业/个人证件
+function shangchuan(val){
+		//获取要显示的mask
+		 $('#mask'+val).css('display','flex');
+		var file = event.target.files || event.dataTransfer.files;
+		if (typeof FileReader === 'undefined') {
+				alert('您的浏览器不支持图片上传，请升级您的浏览器');
+				return false;
+		}
+		var image = new Image();
+		var leng = file.length;
+		for (var i = 0; i < leng; i++) {
+				var reader = new FileReader();
+				reader.readAsDataURL(file[i]);
+				reader.onload = function (e) {
+						upload(val);
+				};
+		}
+}
+
+//时间戳转换方法
+function getLocalTime(nS) {
+	return new Date(parseInt(nS)).toLocaleDateString()
+}
+
+function upload(val){
+		debugger;
+		var fileObj = document.getElementsByClassName("fileIdcard")[val].files[0];
+		var form = new FormData();
+		form.append("file", fileObj);
+		form.append("providertype",number);
+		if(val==1){
+			form.append("side","face");
+		}else if(val==2){
+			form.append("side","");
+		}
+
+		if(typenum == 1){
+				$.ajax({
+					url: server + 'zuul/support/sup/Supserviceprovider/uploadProviderFile',
+					type:"post",
+					processData:false,
+					contentType:false,
+					data:form,
+					success:function(data){
+						//不在显示mask
+						$('#mask'+val).css('display','none');
+						debugger;
+						var data = JSON.parse(data)
+						debugger;
+						if(val == 0){
+							filePaths[1] = "";
+							filePaths[2] = "";
+						}else{
+							filePaths[0] = "";
+						}
+						filePaths[val] =  data.filePath;
+						//企业信息
+						enterprisename = data.name;
+						enterprisehao = data.creditcode;
+						enterpriseaddress = data.address;
+						//注册时间
+						enterprisetime = getLocalTime(data.creattime);
+						$(".imgCard")[val].src = data.filePath;
+						$(".username").val(enterprisename);
+						$(".codeQiye").val(enterprisehao);
+						$(".useraddress").val(enterpriseaddress);
+						$(".time").val(enterprisetime);
+					},
+					error:function(error){
+							//不在显示mask
+							$('#mask'+val).css('display','none');
+							console.log(error);
+					}
+			})
+		}else if(typenum == 2 || typenum == 3){
+			$.ajax({
+				url: server + 'zuul/support/sup/Supserviceprovider/uploadProviderFile',
+				type:"post",
+				processData:false,
+				contentType:false,
+				data:form,
+				success:function(data){
+					//不在显示mask
+					$('#mask'+val).css('display','none');
+					debugger;
+					var data = JSON.parse(data)
+					debugger;
+					if(val == 0){
+						filePaths[1] = "";
+						filePaths[2] = "";
+					}else{
+						filePaths[0] = "";
+					}
+					filePaths[val] =  data.filePath;
+					//用户信息
+					if(val == 1){
+						username = data.name;
+						useraddress = data.address;
+						userage = data.age;
+						usersex = data.sex;
+					}
+					$(".imgCard")[val].src = data.filePath;
+					$(".username").val(username);
+					$(".userage").val(userage);
+					$(".useraddress").val(useraddress);
+					$(".usersex").val(usersex);
+					// if(usersex == "男"){
+					// 	$(".dian").css("display","block");
+					// 	$(".radio").css({"border":"1px solid #4180e7"})
+					// }else if(usersex == "女"){
+					// 	$(".dians").css("display","block");
+					// }
+				},
+				error:function(error){
+						//不在显示mask
+						$('#mask'+val).css('display','none');
+						console.log(error);
+				}
+		})
+	}
+}
+
+$("#phone").blur(function(){
+	var sMobile = $(this).val();
+	if(sMobile == ""){
+		return;
+	}
+	if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){ 
+	  	alert("您填写的电话号码有误，请重新输入！"); 
+	  	$(this).val("");
+	 } 
+})
+$("#phones").blur(function(){
+	var sMobile = $(this).val();
+	if(sMobile == ""){
+		return;
+	}
+	if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){ 
+	  	alert("您填写的电话号码有误，请重新输入！"); 
+	  	$(this).val("");
+	 } 
+})
+//性别 单选按钮
+var sex;
+new Vue({
+  el:".sex",
+  data() {
+    return {
+      sex:sex
+    }
+  },
+  methods:{
+    changsex:function(data){
+    	debugger
+      sex = data;
+    }
+  }
+})
+</script>
